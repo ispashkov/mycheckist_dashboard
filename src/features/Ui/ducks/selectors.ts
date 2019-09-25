@@ -1,5 +1,5 @@
-import * as routes from '../../../constants/routes'
-import { IRoute } from '../../../interfaces'
+import * as routes from 'constants/routes'
+import { IRoute } from 'interfaces'
 
 export const headerRoutes: IRoute[] = [
   {
@@ -7,6 +7,7 @@ export const headerRoutes: IRoute[] = [
     exact: true,
   },
   routes.documents,
+  routes.directions,
   {
     ...routes.admin,
     path: routes.users.path,

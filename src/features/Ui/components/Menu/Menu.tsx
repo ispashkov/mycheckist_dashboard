@@ -30,11 +30,11 @@ class Menu extends Component<Pick<UIState, 'isOpenMenu'> & WithStyles, {}> {
       >
         <div className={classes.toolbar}>
           <Typography className={classes.title} variant="h5" align={isOpenMenu ? 'left' : 'center'}>
-            {isOpenMenu ? 'VTBaton' : 'V'}
+            {isOpenMenu ? 'Geoservice' : 'G'}
           </Typography>
         </div>
         <Divider />
-        <List>
+        <List disablePadding>
           {headerRoutes.map(
             (route: IRoute): JSX.Element => (
               <ListItemLink

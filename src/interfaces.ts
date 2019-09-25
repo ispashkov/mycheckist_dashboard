@@ -58,3 +58,39 @@ export interface Permission {
   name: string
   children: Array<Permission>
 }
+
+export interface DirectionsPoint {
+  lat: number
+  lng: number
+}
+
+export interface DirectionsWaypoint {
+  location: [number, number]
+  name: string
+  hint: string
+  trips_index: number
+  waypoint_index: number
+}
+
+export interface DirectionsLeg {
+  distance: number
+  duration: number
+  weight: number
+  summary: string
+  steps: []
+}
+
+export interface DirectionsTrip {
+  distance: number
+  duration: number
+  weight: number
+  weight_name: string
+  geometry: string
+  legs: DirectionsLeg[]
+}
+
+export interface DirectionsRoute {
+  waypoints: DirectionsWaypoint[]
+  trips: DirectionsTrip[]
+  code: string
+}
