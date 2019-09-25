@@ -111,6 +111,9 @@ export default (themeType: ThemeType) => {
       MuiChip: {
         size: 'small',
       },
+      MuiFab: {
+        size: 'small',
+      },
     },
   })
 }

@@ -16,7 +16,7 @@ export interface UIState {
 export const initialState: UIState = {
   theme: createTheme(themeType),
   themeType,
-  isOpenMenu: true,
+  isOpenMenu: false,
 }
 
 export default (state: UIState = initialState, action: Action): UIState => {
