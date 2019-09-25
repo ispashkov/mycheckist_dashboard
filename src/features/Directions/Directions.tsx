@@ -8,9 +8,8 @@ import { Paper, Fab, Tooltip, withStyles, WithStyles, Theme, createStyles } from
 import { GpsNotFixedOutlined as CreateModeIcon, GpsOffOutlined as CreateModeOffIcon } from '@material-ui/icons'
 import { debounce } from 'throttle-debounce'
 import clsx from 'clsx'
-import { DirectionsPoint, DirectionsRoute } from 'interfaces'
+import { DirectionsPoint } from 'interfaces'
 import RoutingMachine from './RoutingMachine'
-import routeData from './response'
 
 const DefaultIcon = L.icon({
   iconUrl: MarkerIcon,
@@ -126,7 +125,7 @@ class Directions extends Component<WithStyles, DirectionsState> {
             )
           )}
 
-          {isEnableRouting && <RoutingMachine map={this.mapRef} waypoints={route} />}
+          {isEnableRouting && <RoutingMachine map={this.mapRef as Map} waypoints={route} />}
         </Map>
       </Paper>
     )

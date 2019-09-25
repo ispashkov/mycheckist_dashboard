@@ -1,6 +1,5 @@
-import React from 'react'
 import { compose } from 'recompose'
-import { MapLayer, withLeaflet, Map } from 'react-leaflet'
+import { MapLayer, withLeaflet, Map, MapLayerProps } from 'react-leaflet'
 import L from 'leaflet'
 import 'leaflet-routing-machine'
 import 'leaflet-routing-machine/dist/leaflet-routing-machine.css'
@@ -12,19 +11,19 @@ export interface RoutingMachineProps {
   map: Map
 }
 
-class RoutingMachine extends MapLayer<WithStyles & any> {
-  constructor(props: any) {
+type RoutingMachineType = RoutingMachineProps & WithStyles & MapLayerProps
+
+class RoutingMachine extends MapLayer<RoutingMachineType> {
+  constructor(props: RoutingMachineType) {
     super(props)
 
     this.getPlan = this.getPlan.bind(this)
   }
+
   getPlan() {
     const { waypoints, map, classes } = this.props
 
-    console.log('Route computation: ', waypoints)
-    console.log('map: ', map)
-
-    let routing = L.Routing.control({
+    const routing: L.Routing.Control = L.Routing.control({
       waypoints: waypoints.map(
         (w: DirectionsPoint, index: number): L.Routing.Waypoint => ({
           latLng: L.latLng(w.lat, w.lng),
@@ -63,13 +62,11 @@ class RoutingMachine extends MapLayer<WithStyles & any> {
         return marker
       },
     }).addTo(map.leafletElement)
-    console.log(routing)
 
     return routing.getPlan()
   }
 
   createLeafletElement() {
-    console.log(this)
     return this.getPlan()
   }
 
@@ -87,7 +84,7 @@ const styles = (theme: Theme) =>
     },
   })
 
-export default compose<RoutingMachineProps, any>(
+export default compose<RoutingMachineType, RoutingMachineProps>(
   withStyles(styles),
   withLeaflet
 )(RoutingMachine)
