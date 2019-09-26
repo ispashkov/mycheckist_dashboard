@@ -8,13 +8,13 @@ export enum IconPlacement {
   right = 'right',
 }
 
-export interface IProps {
+export interface ButtonWithIconProps {
   icon: React.ComponentType<SvgIconProps>
   iconPlacement?: keyof typeof IconPlacement
   title: string
 }
 
-const ButtonWithIcon: React.FC<IProps & ButtonProps & WithStyles> = ({
+const ButtonWithIcon: React.FC<ButtonWithIconProps & ButtonProps & WithStyles> = ({
   icon,
   iconPlacement,
   title,
