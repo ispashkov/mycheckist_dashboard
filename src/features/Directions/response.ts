@@ -1,0 +1,132 @@
+import { DirectionsRoute } from 'interfaces'
+
+const data: DirectionsRoute = {
+  waypoints: [
+    {
+      location: [37.779079, 55.798349],
+      name: '',
+      hint: 'cMUQgHjFEIDfAAAAAAAAABoBAAAAAAAA3wAAAAAAAAAaAQAAAAAAAAEAAACHdkACTWpTA352QAItalMDAQCvDU9TUk0=',
+      trips_index: 0,
+      waypoint_index: 0,
+    },
+    {
+      location: [37.780492, 55.793237],
+      name: '',
+      hint: '33gAgK3KEIA2AQAAQgAAAAAAAAAAAAAANgEAAEIAAAAAAAAAAAAAAAEAAAAMfEACVVZTA8B7QAJIVlMDAAB_FU9TUk0=',
+      trips_index: 0,
+      waypoint_index: 3,
+    },
+    {
+      location: [37.802536, 55.79837],
+      name: '',
+      hint: 'fssQgM_LEIAJAQAAVQAAAHQAAAAAAAAACQEAAFUAAAB0AAAAAAAAAAEAAAAo0kACYmpTAyvSQAISalMDAQDPEE9TUk0=',
+      trips_index: 0,
+      waypoint_index: 10,
+    },
+    {
+      location: [37.792389, 55.798722],
+      name: '',
+      hint: 'O9EQgEDREIC3AAAAxAAAAAAAAAAAAAAAtwAAAMQAAAAAAAAAAAAAAAEAAACFqkACwmtTA4WqQAIlbFMDAACfBU9TUk0=',
+      trips_index: 0,
+      waypoint_index: 12,
+    },
+    {
+      location: [37.799887, 55.800704],
+      name: '',
+      hint: 'RnUQgEx1EICXAQAA0QIAAAAAAAAAAAAAlwEAANECAAAAAAAAAAAAAAEAAADPx0ACgHNTA0XHQAJ-c1MDAABvFk9TUk0=',
+      trips_index: 0,
+      waypoint_index: 11,
+    },
+    {
+      location: [37.789156, 55.794175],
+      name: '',
+      hint: 'XNAQgK_QEICBAAAAAAAAAAAAAAAAAAAAgQAAAAAAAAAAAAAAAAAAAAEAAADknUAC_1lTA2GgQAJ8WVMDAAB_BU9TUk0=',
+      trips_index: 0,
+      waypoint_index: 6,
+    },
+    {
+      location: [37.796295, 55.795223],
+      name: '',
+      hint: 'qcwQgOLMEIAQAAAAwwAAACUCAAAAAAAAEAAAAMMAAAAlAgAAAAAAAAEAAADHuUACF15TA8e5QAIOXlMDAgDvEE9TUk0=',
+      trips_index: 0,
+      waypoint_index: 8,
+    },
+    {
+      location: [37.78662, 55.794746],
+      name: '',
+      hint: 'jdAQgJXQEIAdAAAAjwAAAAAAAAAAAAAAHQAAAI8AAAAAAAAAAAAAAAEAAAD8k0ACOlxTA_mTQAKYXFMDAADPEE9TUk0=',
+      trips_index: 0,
+      waypoint_index: 5,
+    },
+    {
+      location: [37.783941, 55.79783],
+      name: '',
+      hint: 'qM4QgMvOEIAvAQAAbgEAAAAAAAACAQAALwEAAG4BAAAAAAAAAgEAAAEAAACFiUACRmhTA3-JQALkaFMDAADPEE9TUk0=',
+      trips_index: 0,
+      waypoint_index: 1,
+    },
+    {
+      location: [37.779768, 55.796674],
+      name: '',
+      hint: 'NswQgD7MEIDXAAAAWgEAAAAAAAAAAAAA1wAAAFoBAAAAAAAAAAAAAAEAAAA4eUACwmNTAxF5QALCY1MDAAA_C09TUk0=',
+      trips_index: 0,
+      waypoint_index: 2,
+    },
+    {
+      location: [37.801885, 55.795765],
+      name: '',
+      hint: 'ts8QgDLQEIC4AAAAOQAAAAAAAAAAAAAAuAAAADkAAAAAAAAAAAAAAAEAAACdz0ACNWBTA6fPQALkX1MDAABvBU9TUk0=',
+      trips_index: 0,
+      waypoint_index: 9,
+    },
+    {
+      location: [37.784258, 55.793684],
+      name: '',
+      hint: '_nUAgKOaEIAPAAAAwgAAAAAAAAAAAAAADwAAAMIAAAAAAAAAAAAAAAEAAADCikACFFhTA8GKQAIeWFMDAABfBU9TUk0=',
+      trips_index: 0,
+      waypoint_index: 4,
+    },
+    {
+      location: [37.792625, 55.794929],
+      name: '',
+      hint: 'AM0QgAzNEICPAAAAAQEAAAAAAAAAAAAAjwAAAAEBAAAAAAAAAAAAAAEAAABxq0AC8VxTA3GrQALgXFMDAACfBU9TUk0=',
+      trips_index: 0,
+      waypoint_index: 7,
+    },
+    {
+      location: [37.789015, 55.798831],
+      name: '',
+      hint: 'f9EQgIrREIDZAAAA0QAAAJEAAAAAAAAA2QAAANEAAACRAAAAAAAAAAEAAABXnUACL2xTA12dQAKUa1MDAQCPBU9TUk0=',
+      trips_index: 0,
+      waypoint_index: 13,
+    },
+  ],
+  trips: [
+    {
+      distance: 5340.2,
+      duration: 3844.9,
+      weight: 3844.9,
+      weight_name: 'duration',
+      geometry:
+        'ubqsIgvqeFk@}@wABAqHbAA?aBbBCAyCjCEAwD_A@AaD@`D~@A@vDz@ABvAR?YhIr@jAt@AdBAPoAzB[A_@lAa@Gs@t@YHhAdBu@TnCbDqADb@NGpBoA{@{L_BPGmB[DIoC{@TAsEgBHLoH}@J|@KAoHx@CC{D@x@rCYAiFu@?AgCuGFCiEf@aB?_AAeGc@@SyMl@Ig@oPb@??kAqCBIkA[@?mAd@aCEaEAiAcCBUa@kJJ?e@?d@qDFM^BjGgAX@vCoEDbBC@dCdDI@fAX@Vjc@jAC?pC?jCiA?BzLl@A@zA',
+      legs: [
+        { distance: 569.4, duration: 410.1, weight: 410.1, summary: '', steps: [] },
+        { distance: 395.5, duration: 284.8, weight: 284.8, summary: '', steps: [] },
+        { distance: 498, duration: 358.7, weight: 358.7, summary: '', steps: [] },
+        { distance: 366.4, duration: 263.5, weight: 263.5, summary: '', steps: [] },
+        { distance: 296.6, duration: 213.4, weight: 213.4, summary: '', steps: [] },
+        { distance: 224.9, duration: 161.9, weight: 161.9, summary: '', steps: [] },
+        { distance: 528, duration: 380.1, weight: 380.1, summary: '', steps: [] },
+        { distance: 252.5, duration: 181.9, weight: 181.9, summary: '', steps: [] },
+        { distance: 502.9, duration: 362, weight: 362, summary: '', steps: [] },
+        { distance: 331.6, duration: 239, weight: 239, summary: '', steps: [] },
+        { distance: 417.3, duration: 300.4, weight: 300.4, summary: '', steps: [] },
+        { distance: 679.6, duration: 489.3, weight: 489.3, summary: '', steps: [] },
+        { distance: 277.5, duration: 199.8, weight: 199.8, summary: '', steps: [] },
+      ],
+    },
+  ],
+  code: 'Ok',
+}
+
+export default data

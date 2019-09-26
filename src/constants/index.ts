@@ -1,7 +1,9 @@
-import { FetchParamsBase } from '../interfaces'
+import { FetchParamsBase } from 'interfaces'
 
 export const themeTypeStorageKey: string = 'theme_type'
+export const langStorageKey: string = 'lng'
 export const menuWidth: number = 320
+export const tooltipDelay: number = 500
 
 export const defaultFetchParams: FetchParamsBase = {
   size: 10,

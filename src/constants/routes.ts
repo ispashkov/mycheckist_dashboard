@@ -1,9 +1,10 @@
 import {
   Home as HomeIcon,
-  SupervisorAccount as AdminIcon,
+  SupervisorAccountOutlined as AdminIcon,
   InsertDriveFileOutlined as FileIcon,
+  MapOutlined as MapIcon,
 } from '@material-ui/icons'
-import { IRoute } from '../interfaces'
+import { IRoute } from 'interfaces'
 
 export const home: IRoute = {
   title: 'Главная',
@@ -30,6 +31,13 @@ export const documents: IRoute = {
   path: '/documents',
   exact: false,
   icon: FileIcon,
+}
+
+export const directions: IRoute = {
+  title: 'Построение маршрутов',
+  path: '/directions',
+  exact: false,
+  icon: MapIcon,
 }
 
 export const notFound: IRoute = {

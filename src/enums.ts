@@ -3,8 +3,13 @@ export enum SortDirection {
   desc = 'desc',
 }
 
-export enum documentStatuses {
+export enum DocumentStatuses {
   ACTIVE = 'ACTIVE',
   INACTIVE = 'INACTIVE',
   RESOLVED = 'RESOLVED',
+}
+
+export enum Languages {
+  ru = 'ru',
+  en = 'en',
 }

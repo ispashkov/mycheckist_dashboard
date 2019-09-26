@@ -38,7 +38,13 @@ const ListItemLink: React.FC<ListItemLink & IRoute & WithStyles> = ({
             <Icon fontSize="default" />
           </ListItemIcon>
         )}
-        {!isSmall && <ListItemText primary={title} primaryTypographyProps={{ variant: 'body2' }} />}
+        {!isSmall && (
+          <ListItemText
+            className={classes.listItemText}
+            primary={title}
+            primaryTypographyProps={{ variant: 'body2' }}
+          />
+        )}
       </ListItem>
     </Tooltip>
   )
