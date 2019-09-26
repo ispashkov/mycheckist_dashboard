@@ -3,17 +3,17 @@ import clsx from 'clsx'
 import { Typography, Drawer, Divider, List, WithStyles, withStyles } from '@material-ui/core'
 import ListItemLink from './ListItemLink'
 import { IRoute } from 'interfaces'
-import { UIState } from '../../ducks/reducer'
-import { headerRoutes } from '../../ducks/selectors'
 import styles from './styles'
+import { MenuMapState } from '../../containers/Menu'
 
-class Menu extends Component<Pick<UIState, 'isOpenMenu'> & WithStyles, {}> {
+class Menu extends Component<MenuMapState & WithStyles, {}> {
   static readonly defaultProps = {
     isOpenMenu: false,
+    routes: [],
   }
 
   render(): React.ReactNode {
-    const { isOpenMenu, classes } = this.props
+    const { isOpenMenu, routes, classes } = this.props
 
     return (
       <Drawer
@@ -35,7 +35,7 @@ class Menu extends Component<Pick<UIState, 'isOpenMenu'> & WithStyles, {}> {
         </div>
         <Divider />
         <List disablePadding>
-          {headerRoutes.map(
+          {routes.map(
             (route: IRoute): JSX.Element => (
               <ListItemLink
                 key={route.path}

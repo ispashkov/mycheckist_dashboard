@@ -15,7 +15,7 @@ import {
 import FaceIcon from '@material-ui/icons/Face'
 import styles from './styles'
 import { ReactComponent as statusDot } from 'assets/status_dot.svg'
-import { documentStatuses } from 'enums'
+import { DocumentStatuses } from 'enums'
 import moment from 'moment'
 
 class DocumentItem extends Component<any & WithStyles> {
@@ -23,11 +23,11 @@ class DocumentItem extends Component<any & WithStyles> {
     const { document, classes } = this.props
 
     switch (document.status) {
-      case documentStatuses.ACTIVE:
+      case DocumentStatuses.ACTIVE:
         return React.createElement(statusDot, { className: classes.yellowDot })
-      case documentStatuses.INACTIVE:
+      case DocumentStatuses.INACTIVE:
         return React.createElement(statusDot, { className: classes.redDot })
-      case documentStatuses.RESOLVED:
+      case DocumentStatuses.RESOLVED:
         return React.createElement(statusDot, { className: classes.greenDot })
       default:
         return React.createElement(statusDot, { className: classes.greyDot })
@@ -38,11 +38,11 @@ class DocumentItem extends Component<any & WithStyles> {
     const { document } = this.props
 
     switch (document.status) {
-      case documentStatuses.ACTIVE:
+      case DocumentStatuses.ACTIVE:
         return 'Идет обсуждение'
-      case documentStatuses.INACTIVE:
+      case DocumentStatuses.INACTIVE:
         return 'Обсуждение не согласовано'
-      case documentStatuses.RESOLVED:
+      case DocumentStatuses.RESOLVED:
         return 'Обсуждение было успешно согласовано'
       default:
         return 'Ошибка в статусе обсуждения'

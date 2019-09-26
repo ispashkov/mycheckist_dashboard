@@ -1,31 +1,28 @@
 import React, { Component } from 'react'
-// import { NavLink } from 'react-router-dom'
+import { withTranslation, WithTranslation } from 'react-i18next'
+import { compose } from 'recompose'
 import clsx from 'clsx'
-import { AppBar, Toolbar, IconButton, withStyles, WithStyles } from '@material-ui/core'
+import { AppBar, Toolbar, Tooltip, IconButton, withStyles, WithStyles } from '@material-ui/core'
 import { Menu as MenuIcon, Brightness2Outlined as BrightnessIcon, WbSunnyOutlined as SunIcon } from '@material-ui/icons'
 import styles from './styles'
-import { ThemeType } from '../../../../types'
-import { isLightTheme, setThemeToStorage } from '../../../../utils/theme'
-import { UIState } from '../../ducks/reducer'
-// import { headerRoutes } from '../../ducks/selectors'
-// import { IRoute } from '../../../../interfaces'
+import { ThemeType } from 'types'
+import { isLightTheme, setThemeToStorage } from 'utils/theme'
+import { HeaderMapState, HeaderMapDispatch } from '../../containers/Header'
+import { tooltipDelay } from '../../../../constants'
 
-export interface IHeaderProps extends Pick<UIState, 'themeType' | 'isOpenMenu'> {
-  themeToggle(theme: ThemeType): void
-  menuToggle(): void
-}
+type HeaderProps = HeaderMapState & HeaderMapDispatch & WithStyles & WithTranslation
 
-class Header extends Component<IHeaderProps & WithStyles> {
+class Header extends Component<HeaderProps> {
   static readonly defaultProps = {
     themeType: 'light' as ThemeType,
     isOpenMenu: false,
   }
 
   public handleChangeTheme = (event: React.MouseEvent<HTMLElement, MouseEvent>): void => {
-    const { themeType } = this.props
+    const { themeType, themeToggle } = this.props
     const theme = isLightTheme(themeType) ? 'dark' : 'light'
 
-    this.props.themeToggle(theme)
+    themeToggle(theme)
     setThemeToStorage(theme)
   }
 
@@ -39,6 +36,18 @@ class Header extends Component<IHeaderProps & WithStyles> {
     return isLightTheme(themeType)
   }
 
+  private get menuTooltipTitle(): string {
+    const { isOpenMenu, t } = this.props
+
+    return isOpenMenu ? t('header.menu.hide') : t('header.menu.show')
+  }
+
+  private get themeTooltipTitle(): string {
+    const { t } = this.props
+
+    return this.isLightTheme ? t('header.theme.dark') : t('header.theme.light')
+  }
+
   render(): React.ReactNode {
     const { classes, isOpenMenu } = this.props
 
@@ -50,35 +59,25 @@ class Header extends Component<IHeaderProps & WithStyles> {
         color="inherit"
       >
         <Toolbar className={classes.toolbar}>
-          <IconButton onClick={this.handleToggleMenu} size="medium">
-            <MenuIcon fontSize="default" />
-          </IconButton>
-          {/*<div className={classes.navigation}>*/}
-          {/*  {headerRoutes.map(*/}
-          {/*    (route: IRoute): JSX.Element => (*/}
-          {/*      <NavLink*/}
-          {/*        key={route.path}*/}
-          {/*        to={route.path}*/}
-          {/*        className={classes.navigationLink}*/}
-          {/*        activeClassName={classes.navigationLinkActive}*/}
-          {/*      >*/}
-          {/*        {route.title}*/}
-          {/*      </NavLink>*/}
-          {/*    )*/}
-          {/*  )}*/}
-          {/*</div>*/}
+          <Tooltip title={this.menuTooltipTitle} enterDelay={tooltipDelay}>
+            <IconButton onClick={this.handleToggleMenu} size="medium">
+              <MenuIcon fontSize="default" />
+            </IconButton>
+          </Tooltip>
 
           <div className={classes.toolbarRight}>
-            <IconButton
-              className={clsx({
-                [classes.themeIconLight]: this.isLightTheme,
-                [classes.themeIconDark]: !this.isLightTheme,
-              })}
-              onClick={this.handleChangeTheme}
-              size="medium"
-            >
-              {this.isLightTheme ? <BrightnessIcon fontSize="default" /> : <SunIcon fontSize="default" />}
-            </IconButton>
+            <Tooltip title={this.themeTooltipTitle} enterDelay={tooltipDelay}>
+              <IconButton
+                className={clsx({
+                  [classes.themeIconLight]: this.isLightTheme,
+                  [classes.themeIconDark]: !this.isLightTheme,
+                })}
+                onClick={this.handleChangeTheme}
+                size="medium"
+              >
+                {this.isLightTheme ? <BrightnessIcon fontSize="default" /> : <SunIcon fontSize="default" />}
+              </IconButton>
+            </Tooltip>
           </div>
         </Toolbar>
       </AppBar>
@@ -86,4 +85,7 @@ class Header extends Component<IHeaderProps & WithStyles> {
   }
 }
 
-export default withStyles(styles)(Header)
+export default compose<HeaderProps, {}>(
+  withTranslation('ui'),
+  withStyles(styles)
+)(Header)

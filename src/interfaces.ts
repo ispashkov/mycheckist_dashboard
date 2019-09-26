@@ -1,6 +1,7 @@
 import React from 'react'
 import { SvgIconProps } from '@material-ui/core/SvgIcon'
 import { RouterState } from 'connected-react-router'
+import { ResourceLanguage } from 'i18next'
 import { UIState } from './features/Ui/ducks/reducer'
 import { AdminState } from './features/Admin/ducks/reducer'
 
@@ -93,4 +94,30 @@ export interface DirectionsRoute {
   waypoints: DirectionsWaypoint[]
   trips: DirectionsTrip[]
   code: string
+}
+
+export interface Localization extends ResourceLanguage {
+  translation: {
+    home: {
+      title: string
+    }
+  }
+  ui: {
+    menu: {
+      home: string
+      documents: string
+      directions: string
+      admin: string
+    }
+    header: {
+      menu: {
+        show: string
+        hide: string
+      }
+      theme: {
+        light: string
+        dark: string
+      }
+    }
+  }
 }

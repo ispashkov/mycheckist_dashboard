@@ -1,9 +1,16 @@
 import { connect } from 'react-redux'
 import { Menu } from '../components'
-import { IAppState } from 'interfaces'
+import { IAppState, IRoute } from 'interfaces'
+import { UIState } from '../ducks/reducer'
+import { getHeaderRoutes } from '../ducks/selectors'
 
-const mapStateToProps = (state: IAppState) => ({
+export interface MenuMapState extends Pick<UIState, 'isOpenMenu'> {
+  routes: IRoute[]
+}
+
+const mapStateToProps = (state: IAppState): MenuMapState => ({
   isOpenMenu: state.ui.isOpenMenu,
+  routes: getHeaderRoutes(state),
 })
 
-export default connect(mapStateToProps)(Menu)
+export default connect<MenuMapState, {}, {}, IAppState>(mapStateToProps)(Menu)

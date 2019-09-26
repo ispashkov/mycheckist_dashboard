@@ -1,9 +1,10 @@
 import { Theme } from '@material-ui/core'
 import { Action } from './actions'
 import * as types from './types'
-import { ThemeType } from '../../../types'
-import createTheme from '../../../theme'
-import { getThemeFromStorage } from '../../../utils/theme'
+import { LanguageType, ThemeType } from 'types'
+import createTheme from 'theme'
+import { getThemeFromStorage } from 'utils/theme'
+import { langStorageKey } from '../../../constants'
 
 const themeType = getThemeFromStorage()
 
@@ -11,12 +12,14 @@ export interface UIState {
   theme: Theme
   themeType: ThemeType
   isOpenMenu: boolean
+  lng: LanguageType
 }
 
 export const initialState: UIState = {
   theme: createTheme(themeType),
   themeType,
   isOpenMenu: false,
+  lng: (localStorage.getItem(langStorageKey) || 'ru') as LanguageType,
 }
 
 export default (state: UIState = initialState, action: Action): UIState => {
@@ -32,6 +35,12 @@ export default (state: UIState = initialState, action: Action): UIState => {
       return {
         ...state,
         isOpenMenu: !state.isOpenMenu,
+      }
+
+    case types.LANGUAGE_CHANGE:
+      return {
+        ...state,
+        lng: action.payload,
       }
 
     default:

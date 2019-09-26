@@ -36,6 +36,9 @@ export default (theme: Theme) =>
     listItemIcon: {
       color: 'inherit',
     },
+    listItemText: {
+      whiteSpace: 'nowrap',
+    },
     linkActive: {
       color: theme.palette.primary.main,
     },

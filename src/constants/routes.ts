@@ -4,7 +4,7 @@ import {
   InsertDriveFileOutlined as FileIcon,
   MapOutlined as MapIcon,
 } from '@material-ui/icons'
-import { IRoute } from '../interfaces'
+import { IRoute } from 'interfaces'
 
 export const home: IRoute = {
   title: 'Главная',

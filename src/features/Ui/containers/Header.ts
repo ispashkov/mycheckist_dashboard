@@ -3,13 +3,21 @@ import { connect } from 'react-redux'
 import { Header } from '../components'
 import { themeToggle, menuToggle } from '../ducks/actions'
 import { IAppState } from 'interfaces'
+import { UIState } from '../ducks/reducer'
 
-const mapStateToProps = ({ ui: { isOpenMenu, themeType } }: IAppState) => ({
+export type HeaderMapState = Pick<UIState, 'isOpenMenu' | 'themeType'>
+
+export type HeaderMapDispatch = {
+  themeToggle: typeof themeToggle
+  menuToggle: typeof menuToggle
+}
+
+const mapStateToProps = ({ ui: { isOpenMenu, themeType } }: IAppState): HeaderMapState => ({
   isOpenMenu,
   themeType,
 })
 
-export const mapDispatchToProps = (dispatch: Dispatch) =>
+const mapDispatchToProps = (dispatch: Dispatch): HeaderMapDispatch =>
   bindActionCreators(
     {
       themeToggle,
@@ -18,7 +26,7 @@ export const mapDispatchToProps = (dispatch: Dispatch) =>
     dispatch
   )
 
-export default connect(
+export default connect<HeaderMapState, HeaderMapDispatch, {}, IAppState>(
   mapStateToProps,
   mapDispatchToProps
 )(Header)
