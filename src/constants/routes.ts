@@ -13,22 +13,9 @@ export const home: IRoute = {
   icon: HomeIcon,
 }
 
-export const admin: IRoute = {
-  title: 'Администрирование',
-  path: '/admin',
-  exact: false,
-  icon: AdminIcon,
-}
-
-export const users: IRoute = {
-  title: 'Пользователи',
-  path: '/admin/users',
-  exact: true,
-}
-
-export const documents: IRoute = {
-  title: 'Документы',
-  path: '/documents',
+export const tasks: IRoute = {
+  title: 'Задачи',
+  path: '/tasks',
   exact: false,
   icon: FileIcon,
 }
@@ -55,6 +42,19 @@ export const auth: IRoute = {
 export const registration: IRoute = {
   title: 'Регистрация',
   path: '/registration',
+  exact: true,
+}
+
+export const admin: IRoute = {
+  title: 'Администрирование',
+  path: '/admin',
+  exact: false,
+  icon: AdminIcon,
+}
+
+export const users: IRoute = {
+  title: 'Пользователи',
+  path: '/admin/users',
   exact: true,
 }
 

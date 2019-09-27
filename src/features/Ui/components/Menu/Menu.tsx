@@ -29,11 +29,13 @@ class Menu extends Component<MenuMapState & WithStyles, {}> {
         open
       >
         <div className={classes.toolbar}>
-          <Typography className={classes.title} variant="h5" align={isOpenMenu ? 'left' : 'center'}>
-            {isOpenMenu ? 'Geoservice' : 'G'}
+          <Typography className={classes.title} variant="h5">
+            {isOpenMenu ? 'MyCheckist' : 'C'}
           </Typography>
         </div>
+
         <Divider />
+
         <List disablePadding>
           {routes.map(
             (route: IRoute): JSX.Element => (

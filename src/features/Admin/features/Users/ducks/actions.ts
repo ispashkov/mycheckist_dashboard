@@ -1,5 +1,5 @@
 import * as types from './types'
-import { User } from 'interfaces'
+import { FetchParamsBase, IError, User } from 'interfaces'
 
 export const modalToggle = () => ({
   type: types.MODAL_TOGGLE,
@@ -10,4 +10,21 @@ export const edit = (payload: User | null = null) => ({
   payload,
 })
 
-export type Action = ReturnType<typeof modalToggle | typeof edit>
+export const fetch = (params: FetchParamsBase) => ({
+  type: types.ENTITIES_FETCH_REQUEST,
+  payload: params,
+})
+
+export const fetchSuccess = (users: User[]) => ({
+  type: types.ENTITIES_FETCH_SUCCESS,
+  payload: users,
+})
+
+export const fetchError = (error: IError) => ({
+  type: types.ENTITIES_FETCH_ERROR,
+  error,
+})
+
+export type Action = ReturnType<
+  typeof modalToggle | typeof edit | typeof fetch | typeof fetchSuccess | typeof fetchError
+>

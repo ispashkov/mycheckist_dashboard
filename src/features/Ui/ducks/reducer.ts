@@ -18,7 +18,7 @@ export interface UIState {
 export const initialState: UIState = {
   theme: createTheme(themeType),
   themeType,
-  isOpenMenu: false,
+  isOpenMenu: true,
   lng: (localStorage.getItem(langStorageKey) || 'ru') as LanguageType,
 }
 

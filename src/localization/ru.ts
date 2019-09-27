@@ -9,7 +9,7 @@ const ru: Localization = {
   ui: {
     menu: {
       home: 'Главная',
-      documents: 'Документы',
+      tasks: 'Задачи',
       directions: 'Построение маршрутов',
       admin: 'Администрирование',
     },

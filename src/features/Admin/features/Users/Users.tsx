@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core'
 import Toolbar from 'components/Toolbar'
-import UsersTable from './components/UsersTable'
+import UsersTable from './containers/UsersTable'
 import UsersModal from './containers/UsersModal'
 import { UsersConnectedProps } from './containers/Users'
-import usersData from './mocks/users'
 import { User } from 'interfaces'
 
 export interface IState {
@@ -46,7 +45,7 @@ class Admin extends Component<UsersConnectedProps & WithStyles, IState> {
           <Toolbar searchQuery={searchQuery} onSearch={this.handleSearch} onAdd={this.handleAdd} />
         </div>
 
-        <UsersTable data={usersData} onRemove={this.handleRemove} onEdit={this.handleEdit} onAdd={this.handleAdd} />
+        <UsersTable onRemove={this.handleRemove} onEdit={this.handleEdit} onAdd={this.handleAdd} />
 
         <UsersModal />
       </div>

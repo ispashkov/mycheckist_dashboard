@@ -15,8 +15,8 @@ export const getHeaderRoutes = createSelector(
       exact: true,
     },
     {
-      ...routes.documents,
-      title: resources[lng].ui.menu.documents,
+      ...routes.tasks,
+      title: resources[lng].ui.menu.tasks,
     },
     {
       ...routes.directions,

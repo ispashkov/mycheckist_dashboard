@@ -9,7 +9,7 @@ const en: Localization = {
   ui: {
     menu: {
       home: 'Home',
-      documents: 'Documents',
+      tasks: 'Tasks',
       directions: 'Directions',
       admin: 'Admin',
     },
