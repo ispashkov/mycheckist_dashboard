@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
-import { createStyles, Grid, Theme, Typography, withStyles, WithStyles } from '@material-ui/core'
+import { compose } from 'recompose'
+import { withTranslation, WithTranslation } from 'react-i18next'
+import { Grid, Tooltip, Typography, withStyles, WithStyles, Theme, createStyles } from '@material-ui/core'
 import { ToggleButton, ToggleButtonGroup } from '@material-ui/lab'
 import { MapOutlined, ViewHeadlineOutlined, ViewListOutlined } from '@material-ui/icons'
-import { TasksCardViewConnected, TasksTableViewConnected } from './containers/TasksViews'
+import { TasksCardViewConnected, TasksTableViewConnected, TasksTablePropsConnected } from './containers/TasksViews'
 import { TasksViewMode } from './enums'
 import { TasksConnectedProps } from './containers/Tasks'
 import { defaultFetchParams } from '../../constants'
 import { Task } from './interfaces'
 
-class Tasks extends Component<TasksConnectedProps & WithStyles, {}> {
+type TasksProps = TasksConnectedProps & WithStyles & WithTranslation
+
+class Tasks extends Component<TasksProps, {}> {
   static readonly defaultProps = {
     view: TasksViewMode.card,
   }
@@ -44,28 +48,34 @@ class Tasks extends Component<TasksConnectedProps & WithStyles, {}> {
   }
 
   render(): React.ReactNode {
-    const { classes, view } = this.props
+    const { classes, view, t } = this.props
 
     return (
       <div>
         <Grid container spacing={2} className={classes.toolbar}>
           <Grid item xs={8} className={classes.toolbarLeft}>
-            <Typography variant="h5">Задачи</Typography>
+            <Typography variant="h5">{t('tasks.title')}</Typography>
           </Grid>
 
           <Grid item xs={4} className={classes.toolbarRight}>
             <ToggleButtonGroup value={view} onChange={this.handleChangeViewMode} size="small" exclusive>
-              <ToggleButton value={TasksViewMode.card} disableRipple>
-                <ViewListOutlined />
-              </ToggleButton>
+              <Tooltip title={t('tasks.viewMode.card')}>
+                <ToggleButton value={TasksViewMode.card} selected={view === TasksViewMode.card} disableRipple>
+                  <ViewListOutlined />
+                </ToggleButton>
+              </Tooltip>
 
-              <ToggleButton value={TasksViewMode.table} disableRipple>
-                <ViewHeadlineOutlined />
-              </ToggleButton>
+              <Tooltip title={t('tasks.viewMode.table')}>
+                <ToggleButton value={TasksViewMode.table} selected={view === TasksViewMode.table} disableRipple>
+                  <ViewHeadlineOutlined />
+                </ToggleButton>
+              </Tooltip>
 
-              <ToggleButton value={TasksViewMode.map} disableRipple>
-                <MapOutlined />
-              </ToggleButton>
+              <Tooltip title={t('tasks.viewMode.map')}>
+                <ToggleButton value={TasksViewMode.map} selected={view === TasksViewMode.map} disableRipple>
+                  <MapOutlined />
+                </ToggleButton>
+              </Tooltip>
             </ToggleButtonGroup>
           </Grid>
         </Grid>
@@ -86,7 +96,7 @@ class Tasks extends Component<TasksConnectedProps & WithStyles, {}> {
           />
         )}
 
-        {view === TasksViewMode.map && <Typography>Карта еще не готова</Typography>}
+        {view === TasksViewMode.map && <TasksTablePropsConnected />}
       </div>
     )
   }
@@ -108,4 +118,7 @@ const styles = (theme: Theme) =>
     },
   })
 
-export default withStyles(styles)(Tasks)
+export default compose<TasksProps, {}>(
+  withTranslation(),
+  withStyles(styles)
+)(Tasks)

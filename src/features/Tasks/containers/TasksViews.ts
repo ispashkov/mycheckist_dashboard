@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import TasksCardView from '../components/TasksCardView'
 import TasksTableView from '../components/TasksTableView'
+import TasksMapView from '../components/TasksMapView'
 import { TasksTableProps } from '../components/TasksTableView/TasksTableView'
 import { TasksState } from '../ducks/reducer'
 import { IAppState } from 'interfaces'
@@ -19,5 +20,6 @@ const TasksCardViewConnected = connect<IMapStateToProps, {}, TasksViewProps, IAp
 const TasksTableViewConnected = connect<IMapStateToProps, {}, TasksTableProps, IAppState>(mapStateToProps)(
   TasksTableView
 )
+const TasksTablePropsConnected = connect<IMapStateToProps, {}, {}, IAppState>(mapStateToProps)(TasksMapView)
 
-export { TasksCardViewConnected, TasksTableViewConnected }
+export { TasksCardViewConnected, TasksTableViewConnected, TasksTablePropsConnected }

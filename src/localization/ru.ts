@@ -5,6 +5,14 @@ const ru: Localization = {
     home: {
       title: 'Главная',
     },
+    tasks: {
+      title: 'Задачи',
+      viewMode: {
+        card: 'Отображение плиткой',
+        table: 'Отображение таблицей',
+        map: 'Отображение на карте',
+      },
+    },
   },
   ui: {
     menu: {

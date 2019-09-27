@@ -5,6 +5,14 @@ const en: Localization = {
     home: {
       title: 'Home',
     },
+    tasks: {
+      title: 'Tasks',
+      viewMode: {
+        card: 'Card view',
+        table: 'Table view',
+        map: 'Map view',
+      },
+    },
   },
   ui: {
     menu: {

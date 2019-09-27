@@ -103,6 +103,14 @@ export interface Localization extends ResourceLanguage {
     home: {
       title: string
     }
+    tasks: {
+      title: string
+      viewMode: {
+        card: string
+        table: string
+        map: string
+      }
+    }
   }
   ui: {
     menu: {
