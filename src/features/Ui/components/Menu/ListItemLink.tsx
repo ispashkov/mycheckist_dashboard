@@ -16,6 +16,8 @@ const ListItemLink: React.FC<ListItemLink & IRoute & WithStyles> = ({
   isSmall,
   classes,
 }): JSX.Element => {
+  console.log('re-render link')
+
   const renderLink = React.useMemo(
     () =>
       React.forwardRef<HTMLAnchorElement, NavLinkProps>(

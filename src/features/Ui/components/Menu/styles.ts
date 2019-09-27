@@ -34,6 +34,7 @@ export default (theme: Theme) =>
       flex: 1,
     },
     listItemLink: {
+      color: theme.palette.text.secondary,
       padding: theme.spacing(1.5, 2),
       overflow: 'hidden',
     },
