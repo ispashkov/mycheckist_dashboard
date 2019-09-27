@@ -46,7 +46,7 @@ const TasksTableView: React.FC<TasksTableProps & TasksViewConnectedProps & WithS
             <TableCell>Статус</TableCell>
             <TableCell>Адрес</TableCell>
             <TableCell>Дата завершения</TableCell>
-            {/*<TableCell />*/}
+            <TableCell />
           </TableRow>
         </TableHead>
 
@@ -62,19 +62,19 @@ const TasksTableView: React.FC<TasksTableProps & TasksViewConnectedProps & WithS
                   <TableCell>Выполняется</TableCell>
                   <TableCell>{row.address}</TableCell>
                   <TableCell>{format(parseISO(row.date as string), 'dd.mm.yyyy в hh:mm:ss')}</TableCell>
-                  {/*<TableCell align="right">*/}
-                  {/*  <Tooltip title="Редактировать">*/}
-                  {/*    <IconButton className={classes.btn} color="primary" size="small" onClick={onEdit(row)}>*/}
-                  {/*      <EditIcon />*/}
-                  {/*    </IconButton>*/}
-                  {/*  </Tooltip>*/}
+                  <TableCell align="right">
+                    <Tooltip title="Редактировать">
+                      <IconButton className={classes.btn} color="primary" size="small" onClick={onEdit(row)}>
+                        <EditIcon />
+                      </IconButton>
+                    </Tooltip>
 
-                  {/*  <Tooltip title="Удалить">*/}
-                  {/*    <IconButton className={classes.btn} color="secondary" size="small" onClick={onRemove(row)}>*/}
-                  {/*      <DeleteIcon />*/}
-                  {/*    </IconButton>*/}
-                  {/*  </Tooltip>*/}
-                  {/*</TableCell>*/}
+                    <Tooltip title="Удалить">
+                      <IconButton className={classes.btn} color="secondary" size="small" onClick={onRemove(row)}>
+                        <DeleteIcon />
+                      </IconButton>
+                    </Tooltip>
+                  </TableCell>
                 </TableRow>
               )
             )}
@@ -95,13 +95,13 @@ const TasksTableView: React.FC<TasksTableProps & TasksViewConnectedProps & WithS
                         )
                       )}
 
-                    {/*<TableCell>*/}
-                    {/*  <div className={classes.btnContainer}>*/}
-                    {/*    <Skeleton className={classes.btn} variant="circle" height={26} width={26} />*/}
+                    <TableCell>
+                      <div className={classes.btnContainer}>
+                        <Skeleton className={classes.btn} variant="circle" height={26} width={26} />
 
-                    {/*    <Skeleton className={classes.btn} variant="circle" height={26} width={26} />*/}
-                    {/*  </div>*/}
-                    {/*</TableCell>*/}
+                        <Skeleton className={classes.btn} variant="circle" height={26} width={26} />
+                      </div>
+                    </TableCell>
                   </TableRow>
                 )
               )}
