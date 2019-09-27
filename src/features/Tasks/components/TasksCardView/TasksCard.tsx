@@ -97,7 +97,7 @@ const TasksCard: React.FC<TasksCard & WithStyles> = ({ task, loading, classes })
               </Typography>
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              Дата окончания:{' '}
+              Дата завершения:{' '}
               <Typography variant="body2" color="textPrimary" component="span">
                 {format(parseISO(task.date as string), 'dd.mm.yyyy в hh:mm:ss')}
               </Typography>

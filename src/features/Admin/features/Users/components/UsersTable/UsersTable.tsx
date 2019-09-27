@@ -26,7 +26,6 @@ import { defaultFetchParams } from '../../../../../../constants'
 export interface UsersTableProps extends Pick<UsersState, 'data' | 'isLoading'> {
   onEdit: (row: User) => (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
   onRemove: (row: User) => (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
-  onAdd(event: React.MouseEvent<HTMLElement, MouseEvent>): void
 }
 
 class UsersTable extends Component<UsersTableProps & UsersTableConnectedProps & WithStyles, {}> {

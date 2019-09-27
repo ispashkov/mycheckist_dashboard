@@ -25,7 +25,7 @@ const mapDispatchToProps = (dispatch: Dispatch): IMapDispatchToProps =>
     dispatch
   )
 
-export type TasksCardViewConnectedProps = IMapStateToProps & IMapDispatchToProps
+export type TasksConnectedProps = IMapStateToProps & IMapDispatchToProps
 
 export default connect<IMapStateToProps, IMapDispatchToProps, {}, IAppState>(
   mapStateToProps,

@@ -45,7 +45,7 @@ class Admin extends Component<UsersConnectedProps & WithStyles, IState> {
           <Toolbar searchQuery={searchQuery} onSearch={this.handleSearch} onAdd={this.handleAdd} />
         </div>
 
-        <UsersTable onRemove={this.handleRemove} onEdit={this.handleEdit} onAdd={this.handleAdd} />
+        <UsersTable onRemove={this.handleRemove} onEdit={this.handleEdit} />
 
         <UsersModal />
       </div>

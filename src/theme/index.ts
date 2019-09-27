@@ -74,6 +74,11 @@ export default (themeType: ThemeType) => {
           paddingRight: theme.spacing(2),
         },
       },
+      MuiTableCell: {
+        root: {
+          whiteSpace: 'nowrap',
+        },
+      },
       MuiListItemText: {
         root: {
           marginTop: 0,
