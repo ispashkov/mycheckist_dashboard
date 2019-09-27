@@ -32,6 +32,19 @@ export default (state: UsersState = initialState, action: Action): UsersState =>
         editableEntity: action.payload,
       }
 
+    case types.ENTITIES_FETCH_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+      }
+
+    case types.ENTITIES_FETCH_SUCCESS:
+      return {
+        ...state,
+        data: action.payload,
+        isLoading: false,
+      }
+
     default:
       return state
   }

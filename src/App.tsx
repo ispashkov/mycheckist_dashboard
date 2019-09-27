@@ -9,7 +9,7 @@ import NotFound from 'features/NotFound'
 import Home from 'features/Home'
 import Admin from 'features/Admin'
 import { Auth, Registration } from 'features/AuthRegistration'
-import Documents from 'features/Documents'
+import Tasks from 'features/Tasks'
 import Directions from 'features/Directions'
 
 import store from 'store'
@@ -25,7 +25,7 @@ const App: React.FC = () => (
           <Switch>
             <Route path={routes.home.path} component={withLayout(Home)} exact />
             <Route path={routes.admin.path} exact={routes.admin.exact} component={withLayout(Admin)} />
-            <Route path={routes.documents.path} exact={routes.documents.exact} component={withLayout(Documents)} />
+            <Route path={routes.tasks.path} exact={routes.tasks.exact} component={withLayout(Tasks)} />
             <Route path={routes.directions.path} exact={routes.directions.exact} component={withLayout(Directions)} />
 
             <Route path={routes.auth.path} exact={routes.auth.exact} component={Auth} />

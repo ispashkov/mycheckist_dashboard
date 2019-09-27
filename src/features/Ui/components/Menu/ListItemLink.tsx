@@ -28,7 +28,7 @@ const ListItemLink: React.FC<ListItemLink & IRoute & WithStyles> = ({
 
   return (
     <Tooltip title={isSmall ? title : ''} placement="right">
-      <ListItem component={renderLink} to={path} button>
+      <ListItem className={classes.listItemLink} component={renderLink} to={path} button>
         {Icon && (
           <ListItemIcon
             classes={{

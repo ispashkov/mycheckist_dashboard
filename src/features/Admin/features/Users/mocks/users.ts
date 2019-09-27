@@ -71,4 +71,12 @@ export default [
     login: 'lexicondo',
     photo: 'http://placehold.it/32x32',
   },
+  {
+    id: '5d7d0a64b86049c7b637e0c8',
+    firstName: 'Rosanna',
+    middleName: 'Patterson',
+    lastName: 'Gilbert',
+    login: 'lexicondo',
+    photo: 'http://placehold.it/32x32',
+  },
 ]

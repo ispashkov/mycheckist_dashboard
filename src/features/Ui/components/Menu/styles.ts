@@ -30,8 +30,12 @@ export default (theme: Theme) =>
       alignItems: 'center',
     },
     title: {
-      padding: theme.spacing(2),
+      padding: theme.spacing(2, 2, 2, 2.5),
       flex: 1,
+    },
+    listItemLink: {
+      padding: theme.spacing(1.5, 2),
+      overflow: 'hidden',
     },
     listItemIcon: {
       color: 'inherit',

@@ -4,6 +4,7 @@ import { RouterState } from 'connected-react-router'
 import { ResourceLanguage } from 'i18next'
 import { UIState } from './features/Ui/ducks/reducer'
 import { AdminState } from './features/Admin/ducks/reducer'
+import { TasksState } from './features/Tasks/ducks/reducer'
 
 export interface IError {
   title: string
@@ -15,6 +16,7 @@ export interface IAppState {
   router: RouterState
   ui: UIState
   admin: AdminState
+  tasks: TasksState
 }
 
 export interface IRoute {
@@ -101,11 +103,19 @@ export interface Localization extends ResourceLanguage {
     home: {
       title: string
     }
+    tasks: {
+      title: string
+      viewMode: {
+        card: string
+        table: string
+        map: string
+      }
+    }
   }
   ui: {
     menu: {
       home: string
-      documents: string
+      tasks: string
       directions: string
       admin: string
     }
